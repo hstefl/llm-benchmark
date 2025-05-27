@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+uv.lock
+.env
+.idea/
+.mutmut-cache/
+.coverage
+coverage.xml
+/test_generated.py
+/main.py
+mutants/

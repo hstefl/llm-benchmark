@@ -1,0 +1,68 @@
+[project]
+name = "models-benchmark"
+version = "0.1.0"
+description = "Benchmarking LLMs with FastAPI"
+authors = ["Your Name"]
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",
+    "pytest-mock",
+    "pydantic[email]",
+    "pytest-asyncio",
+]
+benchmarking = [
+    "coverage",
+    "pytest-cov",
+    "ruff",
+    "black",
+    "mypy",
+    "mutmut",
+    "pytest-randomly"
+]
+
+[tool.pytest.ini_options]
+    pythonpath = ["in"]
+
+[tool.ruff]
+# Target modern Python version
+target-version = "py311"
+
+# Max line length
+line-length = 88
+
+# Allow Ruff to auto-fix issues
+fix = false
+
+# Include common file types
+include = ["*.py", "*.pyi"]
+
+# Exclude typical build artifacts and virtual environments
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "venv",
+    ".venv",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache"
+]
+
+[tool.ruff.lint]
+# Enable all rules for strict linting
+select = ["ALL"]
+fixable = []
+unfixable = ["ALL"]
+
+# But ignore rules which are not test relevant or goes against common practices how to write tests.
+ignore = ["S101", "ANN201", "D103", "ANN001", "PLR2004", "INP001", "D100", "D212", "D203", "D211", "ERA001"]
